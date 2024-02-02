@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -57,7 +58,17 @@ public class Main {
         y por último, obtén el promedio total de precios de toda la lista de vehículos.
         */
 
-        List<Vehiculo> vMenor= new ArrayList<>();
-        List<Vehiculo> vMayor= new ArrayList<>();
+        List<Vehiculo> vMenor = garaje.getVehiculos().stream()
+                .filter(x -> x.getCosto() <= 1000)
+                .toList();
+
+        List<Vehiculo> vMayor= garaje.getVehiculos().stream()
+                .filter(x -> x.getCosto() > 1000)
+                .toList();
+
+        //Link del repo
+        //https://github.com/nicolas-aquino/ejs_generics_streams/tree/main
+
+
     }
 }
