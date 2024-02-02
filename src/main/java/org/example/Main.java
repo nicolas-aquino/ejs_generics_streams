@@ -1,5 +1,9 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -36,12 +40,24 @@ public class Main {
                 .sorted((x,y)-> (int) (x.getCosto() - y.getCosto()))
                 .forEach(System.out::println);
 
+        System.out.println("\n\n\n");
         /*
         Ej 4
         De la misma forma que el ejercicio anterior,
         imprime una lista ordenada por marca y a su vez por precio.
          */
+        garaje.getVehiculos().stream()
+                .sorted((o1, o2) -> o1.getMarca().compareTo(o2.getMarca()))
+                .sorted((o1, o2) -> (int) (o1.getCosto() - o2.getCosto()))
+                .forEach(System.out::println);
+        /*
+        Ej 5
+        Se desea extraer una lista de vehículos con precio no mayor a 1000,
+        luego otra con precios mayor o igual 1000
+        y por último, obtén el promedio total de precios de toda la lista de vehículos.
+        */
 
-
+        List<Vehiculo> vMenor= new ArrayList<>();
+        List<Vehiculo> vMayor= new ArrayList<>();
     }
 }
